@@ -25,4 +25,9 @@ public class ItemServiceImpl implements ItemService{
 		itemRepository.delete(id);
 	}
 
+	@Override
+	public List<Item> findByCategoryId(int id) {
+		return itemRepository.findByCategoryId(id);
+	}
+
 }

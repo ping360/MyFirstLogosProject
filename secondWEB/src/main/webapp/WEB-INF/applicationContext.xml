@@ -38,7 +38,7 @@
 
 	<!-- inject @Repository -->
 <!-- 	<jpa:repositories base-package="ua.repository" factory-class="ua.repository.LocalizedSimpleJpaRepositoryFactoryBean"/> -->
-	<jpa:repositories base-package="ua.com.forkShop.dao"/>
+	<jpa:repositories base-package="ua.com.forkShop.repository"/>
 	
 	<bean
 		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />

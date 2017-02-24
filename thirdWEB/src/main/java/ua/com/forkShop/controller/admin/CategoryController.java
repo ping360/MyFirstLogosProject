@@ -27,4 +27,6 @@ public class CategoryController {
 		categoryService.delete(id);
 		return "redirect:/admin/category";
 	}
+	
+// I Am Alive!
 }

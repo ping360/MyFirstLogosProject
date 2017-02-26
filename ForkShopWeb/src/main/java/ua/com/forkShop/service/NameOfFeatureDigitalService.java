@@ -9,4 +9,8 @@ public interface NameOfFeatureDigitalService {
 	List<NameOfFeatureDigital> findAll();
 	
 	void delete(int id);
+	
+	void save(NameOfFeatureDigital nameOfFeatureDigital);
+	
+	NameOfFeatureDigital findOne(int id);
 }

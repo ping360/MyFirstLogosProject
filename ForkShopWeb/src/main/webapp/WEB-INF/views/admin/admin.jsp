@@ -13,9 +13,9 @@
 				<ul class="nav navbar-nav">
 					<li><a href="/admin/category">Category</a></li>
 					<li><a href="/admin/ms">Measuring system</a></li>
-					<li><a href="/admin/producer">Producer</a></li>
-					<li><a href="/admin/nosd">Name of specification digital</a></li>
-					<li><a href="/admin/noss">Name of specification string</a></li>
+					<li><a href="/admin/brand">Brand</a></li>
+					<li><a href="/admin/nameOfFeatureDigital">Name of specification digital</a></li>
+					<li><a href="/admin/nameOfFeatureString">Name of specification string</a></li>
 					<li><a href="/admin/ss">Specification string</a></li>
 					<li><a href="/admin/item">Item</a></li>
 				</ul>

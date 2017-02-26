@@ -13,11 +13,13 @@
 			</button>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="/admin/ingredient">Ingredient</a></li>
+					<li><a href="/admin/category">Category</a></li>
 					<li><a href="/admin/ms">Measuring system</a></li>
-					<li><a href="/admin/country">Country</a></li>
-					<li><a href="/admin/amount">Amount</a></li>
-					<li><a href="/admin/recipe">Recipe</a></li>
+					<li class="active"><a href="/admin/brand">Brand</a></li>
+					<li><a href="/admin/nameOfFeatureDigital">Name of specification digital</a></li>
+					<li><a href="/admin/nameOfFeatureString">Name of specification string</a></li>
+					<li><a href="/admin/ss">Specification string</a></li>
+					<li><a href="/admin/item">Item</a></li>
 				</ul>
 			</div>
 		</div>
@@ -28,7 +30,7 @@
 	<div class="col-md-7 col-xs-12">
 		<div class="row">
 			<div class="col-md-12 col-xs-12">
-				<form:form class="form-horizontal" action="/admin/ingredient" method="POST" modelAttribute="ingredient">
+				<form:form class="form-horizontal" action="/admin/brand" method="POST" modelAttribute="brand">
 					<div class="form-group">
     					<label for="name" class="col-sm-2 control-label">Name</label>
     					<div class="col-sm-10">
@@ -37,23 +39,25 @@
   					</div>
   					<div class="form-group">
     					<div class="col-sm-offset-2 col-sm-10">
-      						<button type="submit" class="btn btn-default">Create</button>
+      						<button type="submit" class="btn btn-primary">Create</button>
+      						<a href  = "/admin/brand/cancel" class="btn btn-primary" >Cancel</a>
     					</div>
   					</div>
 				</form:form>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-4 col-xs-4"><h3>Ingredient name</h3></div>
+			<div class="col-md-4 col-xs-4"><h3>Brand name</h3></div>
 			<div class="col-md-4 col-xs-4"><h3>Update</h3></div>
 			<div class="col-md-4 col-xs-4"><h3>Delete</h3></div>
 		</div>
-			<c:forEach items="${ingredients}" var="ingredient">
+			<c:forEach items="${brands}" var="brand">
 				<div class="row">
-					<div class="col-md-4 col-xs-4">${ingredient.name}</div>
-					<div class="col-md-4 col-xs-4"><a class="btn btn-warning" href="/admin/ingredient/update/${ingredient.id}">update</a></div>
-					<div class="col-md-4 col-xs-4"><a class="btn btn-danger" href="/admin/ingredient/delete/${ingredient.id}">delete</a></div>
+					<div class="col-md-4 col-xs-4">${brand.name}</div>
+					<div class="col-md-4 col-xs-4"><a class="btn btn-success" href="/admin/brand/update/${brand.id}">update</a></div>
+					<div class="col-md-4 col-xs-4"><a class="btn btn-danger" href="/admin/brand/delete/${brand.id}">delete</a></div>
 				</div>
 			</c:forEach>
 	</div>
+	<div class="col-md-2 col-xs-12"></div>
 </div>

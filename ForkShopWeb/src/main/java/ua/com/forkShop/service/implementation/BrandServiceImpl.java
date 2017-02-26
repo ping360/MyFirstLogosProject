@@ -24,5 +24,16 @@ public class BrandServiceImpl implements BrandService{
 	public void delete(int id){
 		brandRepository.delete(id);
 	}
+
+	@Override
+	public void save(Brand brand) {
+		brandRepository.save(brand);
+		
+	}
+
+	@Override
+	public Brand findOne(int id) {
+		return brandRepository.findOne(id);
+	}
 	
 }

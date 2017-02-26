@@ -3,11 +3,13 @@ package ua.com.forkShop.service.implementation;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import ua.com.forkShop.entity.FeatureString;
 import ua.com.forkShop.repository.FeatureStringRepository;
 import ua.com.forkShop.service.FeatureStringService;
 
+@Service
 public class FeatureStringServiceImpl implements FeatureStringService {
 
 	@Autowired

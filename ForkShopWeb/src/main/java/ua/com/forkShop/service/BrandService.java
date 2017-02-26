@@ -9,4 +9,8 @@ public interface BrandService {
 	List<Brand> findAll();
 	
 	void delete(int id);
+	
+	void save(Brand brand);
+	
+	Brand findOne(int id);
 }

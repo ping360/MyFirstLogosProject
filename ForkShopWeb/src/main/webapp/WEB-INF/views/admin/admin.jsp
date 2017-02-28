@@ -12,11 +12,11 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li><a href="/admin/category">Category</a></li>
-					<li><a href="/admin/ms">Measuring system</a></li>
+					<li><a href="/admin/ms">Digital Unit</a></li>
 					<li><a href="/admin/brand">Brand</a></li>
-					<li><a href="/admin/nameOfFeatureDigital">Name of specification digital</a></li>
-					<li><a href="/admin/nameOfFeatureString">Name of specification string</a></li>
-					<li><a href="/admin/ss">Specification string</a></li>
+					<li><a href="/admin/nameOfFeatureDigital">Name of feature digital</a></li>
+					<li><a href="/admin/nameOfFeatureString">Name of feature string</a></li>
+					<li><a href="/admin/ss">Feature String</a></li>
 					<li><a href="/admin/item">Item</a></li>
 				</ul>
 			</div>

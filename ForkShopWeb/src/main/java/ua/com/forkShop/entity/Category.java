@@ -26,19 +26,19 @@ public class Category {
 	private String name;
 	
 	@OneToMany(mappedBy="category")
-	private List<Item> items = new ArrayList<>();
+	private List<Item> items = new ArrayList<Item>();
 	
 	@ManyToMany
 	@JoinTable(name="category_name_of_feature_digital",
 	joinColumns=@JoinColumn(name="id_category"),
 	inverseJoinColumns=@JoinColumn(name="id_name_of_feature_digital"))
-	private List<NameOfFeatureDigital> nameOfFeatureDigitals = new ArrayList<>();
+	private List<NameOfFeatureDigital> nameOfFeatureDigitals = new ArrayList<NameOfFeatureDigital>();
 
 	@ManyToMany
 	@JoinTable(name="category_name_of_feature_string",
 	joinColumns=@JoinColumn(name="id_category"),
 	inverseJoinColumns=@JoinColumn(name="id_name_of_feature_string"))
-	private List<NameOfFeatureString> nameOfFeatureStrings = new ArrayList<>();
+	private List<NameOfFeatureString> nameOfFeatureStrings = new ArrayList<NameOfFeatureString>();
 
 	public int getId() {
 		return id;

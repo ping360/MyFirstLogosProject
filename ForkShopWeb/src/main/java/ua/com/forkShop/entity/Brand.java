@@ -23,7 +23,7 @@ public class Brand {
 	private String name;
 	
 	@OneToMany(mappedBy="brand")
-	private List<Item> items = new ArrayList<>();
+	private List<Item> items = new ArrayList<Item>();
 
 	public int getId() {
 		return id;

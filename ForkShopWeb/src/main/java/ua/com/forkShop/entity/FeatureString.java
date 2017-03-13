@@ -30,7 +30,7 @@ public class FeatureString {
 	private NameOfFeatureString nameOfFeatureString;
 	
 	@ManyToMany(mappedBy="featureStrings")
-	private List<Item> items = new ArrayList<>();
+	private List<Item> items = new ArrayList<Item>();
 
 	public int getId() {
 		return id;

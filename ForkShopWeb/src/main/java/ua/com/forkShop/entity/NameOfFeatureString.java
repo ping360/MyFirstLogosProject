@@ -27,7 +27,7 @@ public class NameOfFeatureString {
 	private List<FeatureString> featureStrings;
 	
 	@ManyToMany(mappedBy="nameOfFeatureStrings")
-	private List<Category> categories = new ArrayList<>();
+	private List<Category> categories = new ArrayList<Category>();
 
 	public int getId() {
 		return id;

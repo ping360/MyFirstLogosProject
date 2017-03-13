@@ -28,7 +28,7 @@ public class FeatureDigital {
 	private BigDecimal value;
 	
 	@ManyToMany(mappedBy="featureDigitals")
-	private List<Item> items = new ArrayList<>();
+	private List<Item> items = new ArrayList<Item>();
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "id_name_of_feature_digital")
@@ -38,7 +38,7 @@ public class FeatureDigital {
 	@JoinTable(name = "digital_unit_feature_digital",
 	joinColumns=@JoinColumn(name="id_feature_digital"),
 	inverseJoinColumns=@JoinColumn(name="id_digital_units"))
-	private List<DigitalUnit> digitalUnits = new ArrayList<>();
+	private List<DigitalUnit> digitalUnits = new ArrayList<DigitalUnit>();
 
 	public int getId() {
 		return id;

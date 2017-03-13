@@ -22,10 +22,10 @@ public class DigitalUnit {
 	private String name;
 	
 	@ManyToMany(mappedBy="digitalUnits")
-	private List<Item> items = new ArrayList<>();
+	private List<Item> items = new ArrayList<Item>();
 	
 	@ManyToMany(mappedBy="digitalUnits")
-	private List<FeatureDigital> featureDigitals = new ArrayList<>();
+	private List<FeatureDigital> featureDigitals = new ArrayList<FeatureDigital>();
 
 	public int getId() {
 		return id;

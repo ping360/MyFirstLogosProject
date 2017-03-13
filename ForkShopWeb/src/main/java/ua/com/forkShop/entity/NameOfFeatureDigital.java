@@ -24,10 +24,10 @@ public class NameOfFeatureDigital {
 	private String name;
 	
 	@OneToMany(mappedBy="nameOfFeatureDigital")
-	private List<FeatureDigital> featureDigitals = new ArrayList<>();
+	private List<FeatureDigital> featureDigitals = new ArrayList<FeatureDigital>();
 	
 	@ManyToMany(mappedBy="nameOfFeatureDigitals")
-	private List<Category> categories = new ArrayList<>();
+	private List<Category> categories = new ArrayList<Category>();
 
 	public int getId() {
 		return id;

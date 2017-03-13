@@ -40,19 +40,19 @@ public class Item {
 	@JoinTable(name="digital_unit_item",
 	joinColumns=@JoinColumn(name="id_item"),
 	inverseJoinColumns=@JoinColumn(name="id_digital_unit"))
-	private List<DigitalUnit> digitalUnits = new ArrayList<>();
+	private List<DigitalUnit> digitalUnits = new ArrayList<DigitalUnit>();
 	
 	@ManyToMany
 	@JoinTable(name="item_feature_string",
 			joinColumns=@JoinColumn(name="id_item"),
 			inverseJoinColumns=@JoinColumn(name="id_feature_string"))
-	private List<FeatureString> featureStrings = new ArrayList<>();
+	private List<FeatureString> featureStrings = new ArrayList<FeatureString>();
 	
 	@ManyToMany
 	@JoinTable(name="item_feature_digital",
 			joinColumns=@JoinColumn(name="id_item"),
 			inverseJoinColumns=@JoinColumn(name="id_feature_digital"))
-	private List<FeatureDigital> featureDigitals = new ArrayList<>();
+	private List<FeatureDigital> featureDigitals = new ArrayList<FeatureDigital>();
 
 	public int getId() {
 		return id;

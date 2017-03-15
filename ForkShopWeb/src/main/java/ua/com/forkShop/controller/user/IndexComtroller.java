@@ -1,5 +1,7 @@
 package ua.com.forkShop.controller.user;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,12 +28,6 @@ public class IndexComtroller {
 	@Autowired
 	private ItemService itemService;
 
-	@RequestMapping("/")
-	public String index(Model model) {
-		model.addAttribute("categories", categoryService.findAll());
-		return "user-index";
-	}
-
 	@RequestMapping("/category/{id}")
 	public String category(@PathVariable int id, Model model) {
 		model.addAttribute("category", categoryService.findOne(id));
@@ -44,20 +40,28 @@ public class IndexComtroller {
 		return "admin-admin";
 	}
 
+	@RequestMapping("/")
+	public String index(Principal principal){
+		if(principal!=null){
+			System.out.println(principal.getName());
+		}
+		return "user-index";
+	}
+	
 	@GetMapping("/registration")
-	public String registration(Model model) {
+	public String registration(Model model){
 		model.addAttribute("user", new User());
 		return "user-registration";
 	}
-
+	
 	@PostMapping("/registration")
-	public String save(@ModelAttribute("user") User user) {
+	public String save(@ModelAttribute("user") User user){
 		userService.save(user);
 		return "redirect:/login";
 	}
-
+	
 	@GetMapping("/login")
-	public String login() {
+	public String login(){
 		return "user-login";
 	}
 }

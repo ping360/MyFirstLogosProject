@@ -7,4 +7,5 @@ import ua.com.forkShop.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
+	User findByEmail(String username);
 }

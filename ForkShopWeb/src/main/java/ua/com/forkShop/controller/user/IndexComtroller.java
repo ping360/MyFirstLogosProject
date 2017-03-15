@@ -28,17 +28,17 @@ public class IndexComtroller {
 	@Autowired
 	private ItemService itemService;
 
-	@RequestMapping("/category/{id}")
-	public String category(@PathVariable int id, Model model) {
-		model.addAttribute("category", categoryService.findOne(id));
-		model.addAttribute("items", itemService.findByCategoryId(id));
-		return "user-category";
-	}
+//	@RequestMapping("/category/{id}")
+//	public String category(@PathVariable int id, Model model) {
+//		model.addAttribute("category", categoryService.findOne(id));
+//		model.addAttribute("items", itemService.findByCategoryId(id));
+//		return "user-category";
+//	}
 
-	@RequestMapping("/admin")
-	public String admin() {
-		return "admin-admin";
-	}
+//	@RequestMapping("/admin")
+//	public String admin() {
+//		return "admin-admin";
+//	}
 
 	@RequestMapping("/")
 	public String index(Principal principal){
@@ -63,5 +63,5 @@ public class IndexComtroller {
 	@GetMapping("/login")
 	public String login(){
 		return "user-login";
-	}
+}
 }

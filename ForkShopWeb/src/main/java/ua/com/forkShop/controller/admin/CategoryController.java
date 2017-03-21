@@ -16,7 +16,7 @@ import ua.com.forkShop.service.CategoryService;
 
 @Controller
 @RequestMapping("/admin/category")
-@SessionAttributes("category")
+@SessionAttributes(names="category")
 public class CategoryController {
 	
 	@Autowired

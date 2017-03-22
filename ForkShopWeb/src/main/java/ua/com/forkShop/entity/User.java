@@ -18,7 +18,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
-@Table(name = "_name", indexes = @Index(columnList = "_name"))
+@Table(name = "_user", indexes = @Index(columnList = "_name"))
 public class User implements UserDetails {
 
 	private static final long serialVersionUID = 6269279622444841692L;
@@ -26,6 +26,9 @@ public class User implements UserDetails {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(name="_name")
+	private String username;
 	
 	private String email;
 	
@@ -41,6 +44,10 @@ public class User implements UserDetails {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getEmail() {

@@ -24,7 +24,7 @@ public class DigitalUnitValidator implements Validator {
 	public void validate(Object target, Errors errors) {
 		DigitalUnit du = (DigitalUnit) target;
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "", "Can`t be empty");
-		if(digitalUnitService.findOne(du.getName()!=null)){
+		if(digitalUnitService.findOne(du.getName())!=null){
 			errors.rejectValue("name", "", "Already exist");
 		}
 	}

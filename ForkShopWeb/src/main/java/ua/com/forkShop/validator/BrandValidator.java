@@ -24,7 +24,7 @@ public class BrandValidator implements Validator{
 	public void validate(Object target, Errors errors) {
 		Brand brand = (Brand) target;
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "", "Can`t be empty");
-		if (brandService.findOne(brand.getName()!=null)) {
+		if (brandService.findOne(brand.getName())!=null) {
 			errors.rejectValue("name", "", "Already exist");
 		}
 	}

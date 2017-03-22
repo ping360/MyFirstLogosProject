@@ -14,11 +14,11 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li><a href="/admin/category">Category</a></li>
-					<li><a href="/admin/ms">Measuring system</a></li>
+					<li><a href="/admin/du">Measuring system</a></li>
 					<li><a href="/admin/brand">Brand</a></li>
-					<li class="active"><a href="/admin/nameOfFeatureDigital">Name of specification digital</a></li>
-					<li><a href="/admin/nameOfFeatureString">Name of specification string</a></li>
-					<li><a href="/admin/ss">Specification string</a></li>
+					<li class="active"><a href="/admin/nofd">Name of specification digital</a></li>
+					<li><a href="/admin/nofs">Name of specification string</a></li>
+					<li><a href="/admin/fs">Specification string</a></li>
 					<li><a href="/admin/item">Item</a></li>
 				</ul>
 			</div>
@@ -30,7 +30,7 @@
 	<div class="col-md-7 col-xs-12">
 		<div class="row">
 			<div class="col-md-12 col-xs-12">
-				<form:form class="form-horizontal" action="/admin/nameOfFeatureDigital" method="POST" modelAttribute="nameOfFeatureDigital">
+				<form:form class="form-horizontal" action="/admin/nofd" method="POST" modelAttribute="nofd">
 					<div class="form-group">
     					<label for="name" class="col-sm-2 control-label">Name</label>
     					<div class="col-sm-10">
@@ -46,7 +46,7 @@
   					<div class="form-group">
     					<div class="col-sm-offset-2 col-sm-10">
       						<button type="submit" class="btn btn-primary">Create</button>
-      						<a href  = "/admin/nameOfFeatureDigital/cancel" class="btn btn-primary" >Cancel</a>
+      						<a href  = "/admin/nofd/cancel" class="btn btn-primary" >Cancel</a>
     					</div>
   					</div>
 				</form:form>
@@ -57,11 +57,11 @@
 			<div class="col-md-4 col-xs-4"><h3>Update</h3></div>
 			<div class="col-md-4 col-xs-4"><h3>Delete</h3></div>
 		</div>
-			<c:forEach items="${nameOfFeatureDigitals}" var="nameOfFeatureDigital">
+			<c:forEach items="${page.content}" var="nofd">
 				<div class="row">
-					<div class="col-md-4 col-xs-4">${nameOfFeatureDigital.name}</div>
-					<div class="col-md-4 col-xs-4"><a class="btn btn-success" href="/admin/nameOfFeatureDigital/update/${nameOfFeatureDigital.id}">update</a></div>
-					<div class="col-md-4 col-xs-4"><a class="btn btn-danger" href="/admin/nameOfFeatureDigital/delete/${nameOfFeatureDigital.id}">delete</a></div>
+					<div class="col-md-4 col-xs-4">${nofd.name}</div>
+					<div class="col-md-4 col-xs-4"><a class="btn btn-success" href="/admin/nofd/update/${nofd.id}">update</a></div>
+					<div class="col-md-4 col-xs-4"><a class="btn btn-danger" href="/admin/nofd/delete/${nofd.id}">delete</a></div>
 				</div>
 			</c:forEach>
 	</div>

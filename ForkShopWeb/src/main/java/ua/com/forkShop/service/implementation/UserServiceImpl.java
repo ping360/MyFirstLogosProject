@@ -32,12 +32,12 @@ public class UserServiceImpl implements UserService, UserDetailsService{
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		return userRepository.findByEmail(username);
+		return userRepository.findByUsername(username);
 	}
 	
 	@PostConstruct
 	public void addAdmin(){
-		User user = userRepository.findByEmail("admin");
+		User user = userRepository.findByUsername("admin");
 		if(user==null){
 			user = new User();
 			user.setEmail("admin");

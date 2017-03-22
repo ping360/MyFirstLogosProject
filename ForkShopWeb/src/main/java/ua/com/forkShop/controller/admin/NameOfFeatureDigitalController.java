@@ -17,7 +17,7 @@ import ua.com.forkShop.service.NameOfFeatureDigitalService;
 
 
 @Controller
-@RequestMapping("/admin/nameOfFeatureDigital")
+@RequestMapping("/admin/nofd")
 @SessionAttributes("nameOfFeatureDigital")
 public class NameOfFeatureDigitalController {
 
@@ -27,7 +27,7 @@ public class NameOfFeatureDigitalController {
 	@Autowired
 	private CategoryService categoryService;
 	
-	@ModelAttribute("nameOfFeatureDigital")
+	@ModelAttribute("nofd")
 	public NameOfFeatureDigital getForm(){
 		return new NameOfFeatureDigital();
 	}
@@ -60,6 +60,6 @@ public class NameOfFeatureDigitalController {
 	@RequestMapping("/cancel")
 	public String cancel(SessionStatus status){
 		status.setComplete();
-		return "redirect:/admin/nameOfFeatureDigital";
+		return "redirect:/admin/nofd";
 	}
 }

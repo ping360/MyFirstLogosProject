@@ -1,5 +1,6 @@
 package ua.com.forkShop.entity;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,10 @@ public class Item {
 	@Column(name="_name")
 	private String name;
 	
-	private double price;
+	@Column(name = "version", nullable = true)
+	private Integer version;
+	
+	private BigDecimal price;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_brand")
@@ -70,11 +74,11 @@ public class Item {
 		this.name = name;
 	}
 
-	public double getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 

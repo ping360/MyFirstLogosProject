@@ -9,13 +9,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "feature_string")
+@Table(name = "feature_string", indexes=@Index(columnList = "_name"))
 public class FeatureString {
 
 	@Id
@@ -62,6 +63,28 @@ public class FeatureString {
 
 	public void setItems(List<Item> items) {
 		this.items = items;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FeatureString other = (FeatureString) obj;
+		if (id != other.id)
+			return false;
+		return true;
 	}
 	
 	

@@ -8,11 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "digital_unit")
+@Table(name = "digital_unit", indexes=@Index(columnList = "_name"))
 public class DigitalUnit {
 
 	@Id

@@ -8,12 +8,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
-@Table(name = "name_of_feature_digital")
+@Table(name = "name_of_feature_digital", indexes=@Index(columnList = "_name"))
 public class NameOfFeatureDigital {
 
 	@Id
@@ -28,6 +30,17 @@ public class NameOfFeatureDigital {
 	
 	@ManyToMany(mappedBy="nameOfFeatureDigitals")
 	private List<Category> categories = new ArrayList<Category>();
+
+	@Transient
+	private List<DigitalUnit> du = new ArrayList<>();
+	
+	public List<DigitalUnit> getDu() {
+		return du;
+	}
+
+	public void setDu(List<DigitalUnit> du) {
+		this.du = du;
+	}
 
 	public int getId() {
 		return id;

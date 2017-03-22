@@ -7,6 +7,10 @@ import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -14,11 +18,15 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
-@Table(name="_name")
-public class User extends AbstractEntity implements UserDetails {
+@Table(name = "_name", indexes = @Index(columnList = "_name"))
+public class User implements UserDetails {
 
 	private static final long serialVersionUID = 6269279622444841692L;
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+	
 	private String email;
 	
 	private String password;
@@ -26,6 +34,14 @@ public class User extends AbstractEntity implements UserDetails {
 	@Enumerated
 	@Column(name="_role")
 	private Role role;
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getEmail() {
 		return email;
@@ -79,7 +95,5 @@ public class User extends AbstractEntity implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		return true;
-	}
-	
-	
+}
 }

@@ -37,7 +37,7 @@
 		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 
 	<!-- inject @Repository -->
-<!-- 	<jpa:repositories base-package="ua.repository" factory-class="ua.repository.LocalizedSimpleJpaRepositoryFactoryBean"/> -->
+<!-- 	<jpa:repositories base-package="ua.com.forkShop.repository" factory-class="ua.com.forkShop.repository.LocalizedSimpleJpaRepositoryFactoryBean"/> -->
 	<jpa:repositories base-package="ua.com.forkShop.repository"/>
 	
 	<bean

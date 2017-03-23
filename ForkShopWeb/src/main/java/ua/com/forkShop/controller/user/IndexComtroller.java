@@ -35,10 +35,10 @@ public class IndexComtroller {
 //		return "user-category";
 //	}
 
-//	@RequestMapping("/admin")
-//	public String admin() {
-//		return "admin-admin";
-//	}
+	@RequestMapping("/admin")
+	public String admin() {
+		return "admin-admin";
+	}
 
 	@RequestMapping("/")
 	public String index(Principal principal){

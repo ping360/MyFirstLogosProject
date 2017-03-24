@@ -8,15 +8,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import ua.com.forkShop.dto.filter.BasicFilter;
+import ua.com.forkShop.dto.rest.NameOfFeatureDiditalDto;
 import ua.com.forkShop.entity.Category;
+import ua.com.forkShop.entity.DigitalUnit;
+import ua.com.forkShop.entity.FeatureDigital;
 import ua.com.forkShop.entity.NameOfFeatureDigital;
 import ua.com.forkShop.repository.CategoryRepository;
 import ua.com.forkShop.repository.NameOfFeatureDigitalRepository;
 import ua.com.forkShop.service.NameOfFeatureDigitalService;
-import ua.com.forkShop.service.specification.NameOfFeatureDigitalSpecification;
 import ua.com.forkShop.service.specification.NameOfFeatureDigitalExcludeSpecification;
+import ua.com.forkShop.service.specification.NameOfFeatureDigitalSpecification;
 
 @Service
 public class NameOfFeatureDigitalServiceImpl implements NameOfFeatureDigitalService {
@@ -64,13 +68,33 @@ public class NameOfFeatureDigitalServiceImpl implements NameOfFeatureDigitalServ
 
 	@Override
 	public Page<NameOfFeatureDigital> findAllExcludeLoaded(BasicFilter filter, Pageable pageable, Category category) {
-		// TODO Auto-generated method stub
-		return null;
+		return nameOfFeatureDigitalRepository.findAll(new NameOfFeatureDigitalExcludeSpecification(filter, category), pageable);
 	}
 
 	@Override
-	public List<NameOfFeatureDigital> findAllLoadedSD() {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional
+	public List<NameOfFeatureDigital> findAllLoadedFD() {
+		List<NameOfFeatureDigital> list = nameOfFeatureDigitalRepository.findAllLoadedFD();
+		for (NameOfFeatureDigital nameOfFeatureDigital : list) {
+			for (FeatureDigital featureDigital : nameOfFeatureDigital.getFeatureDigitals()){
+				Hibernate.initialize(featureDigital.getDigitalUnits());
+				for(DigitalUnit du : featureDigital.getDigitalUnits()){
+					if(!nameOfFeatureDigital.getDu().contains(du)) nameOfFeatureDigital.getDu().add(du);
+				}
+			}
+		}
+		return list;
+	}
+
+	@Override
+	public List<NameOfFeatureDiditalDto> findByCategoryIdDto(int id) {
+		return findByCategoryId(id).stream().map(this::mapper).collect(Collectors.toList());
+	}
+	
+	private NameOfFeatureDiditalDto mapper(NameOfFeatureDigital digital){
+		NameOfFeatureDiditalDto dto = new NameOfFeatureDiditalDto();
+		dto.setId(digital.getId());
+		dto.setName(digital.getName());
+		return dto;
 	}
 }

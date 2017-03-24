@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import ua.com.forkShop.dto.filter.BasicFilter;
+import ua.com.forkShop.dto.rest.NameOfFeatureDiditalDto;
 import ua.com.forkShop.entity.Category;
 import ua.com.forkShop.entity.NameOfFeatureDigital;
 
@@ -27,7 +28,7 @@ public interface NameOfFeatureDigitalService {
 
 	Page<NameOfFeatureDigital> findAllExcludeLoaded(BasicFilter filter, Pageable pageable, Category category);
 
-	List<NameOfFeatureDigital> findAllLoadedSD();
+	List<NameOfFeatureDigital> findAllLoadedFD();
 
-	
+	List<NameOfFeatureDiditalDto> findByCategoryIdDto(int i);
 }

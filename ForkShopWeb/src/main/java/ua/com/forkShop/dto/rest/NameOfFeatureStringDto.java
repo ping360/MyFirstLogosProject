@@ -20,7 +20,7 @@ public class NameOfFeatureStringDto {
 		return featureStringDto;
 	}
 
-	public void setFeatureStringDto(List<FeatureStringDto> featureStringDto) {
+	public void setFeatureString(List<FeatureStringDto> featureStringDto) {
 		this.featureStringDto = featureStringDto;
 	}
 	

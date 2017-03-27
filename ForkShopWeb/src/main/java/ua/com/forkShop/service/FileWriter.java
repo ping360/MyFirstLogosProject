@@ -5,8 +5,8 @@ import org.springframework.web.multipart.MultipartFile;
 public interface FileWriter {
 
 	enum Folder {
-		INGREDIENT
+		ITEM
 	}
 
-	boolean write(Folder folder, MultipartFile file, Long id);
+	boolean write(Folder folder, MultipartFile file, int i);
 }

@@ -86,9 +86,10 @@ public class NameOfFeatureStringServiceImpl implements NameOfFeatureStringServic
 	}
 	
 	private NameOfFeatureStringDto mapper(NameOfFeatureString featureString){
-		NameOfFeatureStringDto dto = new FeatureStringDto();
+		NameOfFeatureStringDto dto = new NameOfFeatureStringDto();
 		dto.setName(featureString.getName());
-		dto.
-		
+		dto.setFeatureString(featureString.getFeatureStrings().stream().map(this::mapper).collect(Collectors.toList()));
+		return dto;
 	}
+	
 }

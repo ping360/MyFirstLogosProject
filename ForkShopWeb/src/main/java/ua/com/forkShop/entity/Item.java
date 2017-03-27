@@ -121,6 +121,13 @@ public class Item {
 	public void setFeatureDigitals(List<FeatureDigital> featureDigitals) {
 		this.featureDigitals = featureDigitals;
 	}
-	
+
+	public Integer getVersion() {
+		return version;
+	}
+
+	public void setVersion(Integer version) {
+		this.version = version;
+	}
 	
 }

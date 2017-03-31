@@ -10,7 +10,7 @@ import ua.com.forkShop.entity.FeatureDigital;
 
 public interface FeatureDigitalRepository extends JpaRepository<FeatureDigital, Integer> {
 
-	@Query("SELECT fd FROM FeatureDigital fd " + "LEFT JOIN FETCH fd.digitalUnitss WHERE "
+	@Query("SELECT fd FROM FeatureDigital fd " + "LEFT JOIN FETCH fd.digitalUnits WHERE "
 			+ "fd.nameOfFeatureDigital.id=:nofdId " + "AND fd.value=:value")
 	FeatureDigital findByNofdValue(@Param("nofdId") Integer nofdId, @Param("value") BigDecimal value);
 }

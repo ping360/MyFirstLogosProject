@@ -37,7 +37,7 @@ public class NameOfFeatureDigitalController {
 	@Autowired
 	private CategoryService categoryService;
 
-	@InitBinder("nosd")
+	@InitBinder("nofd")
 	protected void initBinder(WebDataBinder binder) {
 		binder.setValidator(new NameOfFeatureDigitalValidator(nameOfFeatureDigitalService));
 	}

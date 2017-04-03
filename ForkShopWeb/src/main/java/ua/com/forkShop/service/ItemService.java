@@ -20,4 +20,8 @@ public interface ItemService {
 	List<Item> findByCategoryId(int id);
 	
 	Page<Item> findAll(ItemFilter filter, Pageable pageable);
+	
+	int findCount(int id);
+
+	List<Item> findByUserId(int userId);
 }

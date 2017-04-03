@@ -51,9 +51,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		User user = userRepository.findByUsername("admin");
 		if (user == null) {
 			user = new User();
-			user.setEmail("admin");
+			user.setEmail("");
 			user.setPassword(encoder.encode("admin"));
 			user.setRole(Role.ROLE_ADMIN);
+			user.setUsername("admin");
 			userRepository.save(user);
 		}
 	}
@@ -69,6 +70,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		}
 		Item item = itemRepository.findOne(itemId);
 		cart.add(item);
+	}
+	
+	@Override
+	public int createNewUser() {
+		return userRepository.saveAndFlush(new User()).getId();
 	}
 
 	public void setUserRepository(UserRepository userRepository) {
@@ -87,8 +93,4 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		this.itemRepository = itemRepository;
 }
 
-	@Override
-	public int createNewUser() {
-		return userRepository.saveAndFlush(new User()).getId();
-	}
 }

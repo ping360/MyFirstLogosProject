@@ -7,10 +7,12 @@ import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -38,6 +40,17 @@ public class User implements UserDetails {
 	@Column(name="_role")
 	private Role role;
 	
+	@ManyToOne(fetch=FetchType.LAZY)
+	private ShopingCart shopingCart;
+	
+	public ShopingCart getShopingCart() {
+		return shopingCart;
+	}
+
+	public void setShopingCart(ShopingCart shopingCart) {
+		this.shopingCart = shopingCart;
+	}
+
 	public int getId() {
 		return id;
 	}

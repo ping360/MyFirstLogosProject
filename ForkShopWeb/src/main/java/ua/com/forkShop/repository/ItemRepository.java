@@ -15,10 +15,15 @@ public interface ItemRepository extends JpaRepository<Item, Integer>, JpaSpecifi
 	@Query("SELECT i FROM Item i LEFT JOIN FETCH i.category LEFT JOIN FETCH i.brand")
 	List<Item> findAll();
 
-	@Query(value = "SELECT i FROM Item i LEFT JOIN FETCH i.category LEFT JOIN FETCH i.brand", 
-			countQuery = "SELECT count(i.id) FROM Item i")
+	@Query(value = "SELECT i FROM Item i LEFT JOIN FETCH i.category LEFT JOIN FETCH i.brand", countQuery = "SELECT count(i.id) FROM Item i")
 	Page<Item> findAll(Pageable pageable);
 
 	@Query("SELECT i FROM Item i WHERE i.category.id = ?1")
 	List<Item> findByCategoryId(int id);
+
+	@Query("SELECT sc.count FROM User u JOIN u.shopingCart sc WHERE u.id=?1")
+	Integer findCount(int id);
+
+	@Query("SELECT i FROM Item i JOIN i.shopingCarts sc JOIN sc.users u WHERE u.id=?1")
+	List<Item> findByUserId(int userId);
 }

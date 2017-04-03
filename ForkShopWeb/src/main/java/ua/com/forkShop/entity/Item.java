@@ -58,6 +58,17 @@ public class Item {
 			inverseJoinColumns=@JoinColumn(name="id_feature_digital"))
 	private List<FeatureDigital> featureDigitals = new ArrayList<FeatureDigital>();
 
+	@ManyToMany(mappedBy="items")
+	private List<ShopingCart> shopingCarts = new ArrayList<>();
+	
+	public List<ShopingCart> getShopingCarts() {
+		return shopingCarts;
+	}
+
+	public void setShopingCarts(List<ShopingCart> shopingCarts) {
+		this.shopingCarts = shopingCarts;
+	}
+
 	public int getId() {
 		return id;
 	}

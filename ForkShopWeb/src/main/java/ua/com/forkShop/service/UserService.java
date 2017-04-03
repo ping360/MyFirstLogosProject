@@ -6,4 +6,7 @@ public interface UserService {
 
 	void save(User user);
 	
+	int createNewUser();
+
+	void addToShoppingCart(int userId, int itemId);
 }

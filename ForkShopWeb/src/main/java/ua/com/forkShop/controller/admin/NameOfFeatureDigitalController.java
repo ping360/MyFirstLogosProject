@@ -66,8 +66,6 @@ public class NameOfFeatureDigitalController {
 	@RequestMapping
 	public String show(Model model, @PageableDefault Pageable pageable, @ModelAttribute("filter") BasicFilter filter) {
 		model.addAttribute("page", nameOfFeatureDigitalService.findAll(filter, pageable));
-//		model.addAttribute("nameOfFeatureDigitals", nameOfFeatureDigitalService.findAll());
-//		model.addAttribute("categories", categoryService.findAll());
 		return "admin-nameOfFeatureDigital";
 	}
 

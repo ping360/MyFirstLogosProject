@@ -28,6 +28,4 @@ public class NameOfFeatureDigitalValidator implements Validator {
 			errors.rejectValue("name", "", "Already exist");
 		}
 	}
-	
-	
 }

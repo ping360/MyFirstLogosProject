@@ -37,12 +37,12 @@
       						<form:input type="text" class="form-control" path="name" id="name"/>
     					</div>
   					</div>
-  					<div class="form-group">
-    					<label for="categories" class="col-sm-2 control-label">Categories</label>
-    					<div class="col-sm-10">
-      						<form:select class="form-control" path="categories" id="categories" items="${categoriess}" itemValue="id" itemLabel="name"/>
-    					</div>
-					</div>
+<!--   					<div class="form-group"> -->
+<!--     					<label for="categories" class="col-sm-2 control-label">Categories</label> -->
+<!--     					<div class="col-sm-10"> -->
+<%--       						<form:select class="form-control" path="categories" id="categories" items="${categoriess}" itemValue="id" itemLabel="name"/> --%>
+<!--     					</div> -->
+<!-- 					</div> -->
   					<div class="form-group">
     					<div class="col-sm-offset-2 col-sm-10">
       						<button type="submit" class="btn btn-primary">Create</button>

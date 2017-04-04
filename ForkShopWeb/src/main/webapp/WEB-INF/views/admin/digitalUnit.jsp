@@ -53,6 +53,7 @@
   					<div class="form-group">
     					<div class="col-sm-offset-2 col-sm-10">
       						<button type="submit" class="btn btn-default">Create</button>
+      						<a href  = "/admin/du/cancel" class="btn btn-primary" >Cancel</a>
     					</div>
   					</div>
 				</form:form>

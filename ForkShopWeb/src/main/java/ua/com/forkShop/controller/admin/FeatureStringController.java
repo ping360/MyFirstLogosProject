@@ -54,35 +54,44 @@ public class FeatureStringController {
 	public BasicFilter getFilter() {
 		return new BasicFilter();
 	}
-	
+
 	@RequestMapping
-	public String show(Model model, @PageableDefault Pageable pageable, @ModelAttribute("filter") BasicFilter filter){
+	public String show(Model model, @PageableDefault Pageable pageable, @ModelAttribute("filter") BasicFilter filter) {
 		model.addAttribute("page", featureStringService.findAll(filter, pageable));
 		model.addAttribute("nofss", nameOfFeatureStringService.findAll());
 		return "admin-featureString";
 	}
-	
+
 	@RequestMapping("/update/{id}")
-	public String update(@PathVariable int id, Model model, @PageableDefault Pageable pageable, @ModelAttribute("filter") BasicFilter filter){
+	public String update(@PathVariable int id, Model model, @PageableDefault Pageable pageable,
+			@ModelAttribute("filter") BasicFilter filter) {
 		model.addAttribute("fs", featureStringService.findOne(id));
 		show(model, pageable, filter);
 		return "admin-featureString";
 	}
-	
+
 	@RequestMapping("/delete/{id}")
-	public String delete(@PathVariable int id, @PageableDefault Pageable pageable, @ModelAttribute("filter") BasicFilter filter){
+	public String delete(@PathVariable int id, @PageableDefault Pageable pageable,
+			@ModelAttribute("filter") BasicFilter filter) {
 		featureStringService.delete(id);
-		return "redirect:/admin/fs"+getParams(pageable, filter);
+		return "redirect:/admin/fs" + getParams(pageable, filter);
 	}
-	
-	@RequestMapping(method=POST)
-	public String save(@ModelAttribute("fs")@Valid FeatureString form,BindingResult br, Model model, SessionStatus status, @PageableDefault Pageable pageable, @ModelAttribute("filter") BasicFilter filter){
-		if(br.hasErrors()){
+
+	@RequestMapping(method = POST)
+	public String save(@ModelAttribute("fs") @Valid FeatureString form, BindingResult br, Model model,
+			SessionStatus status, @PageableDefault Pageable pageable, @ModelAttribute("filter") BasicFilter filter) {
+		if (br.hasErrors()) {
 			show(model, pageable, filter);
 			return "admin-featureString";
 		}
 		featureStringService.save(form);
 		status.setComplete();
-		return "redirect:/admin/fs"+getParams(pageable, filter);
-}
+		return "redirect:/admin/fs" + getParams(pageable, filter);
+	}
+
+	@RequestMapping("/cancel")
+	public String cancel(SessionStatus status) {
+		status.setComplete();
+		return "redirect:/admin/fs";
+	}
 }

@@ -34,7 +34,7 @@
 					<div class="form-group">
     					<label for="name" class="col-sm-2 control-label">Name</label>
     					<div class="col-sm-10">
-      						<form:input class="form-control" path="name" id="name"/>
+      						<form:input class="form-control" path="name" id="brand"/>
     					</div>
   					</div>
   					<div class="form-group">
@@ -51,7 +51,7 @@
 			<div class="col-md-4 col-xs-4"><h3>Update</h3></div>
 			<div class="col-md-4 col-xs-4"><h3>Delete</h3></div>
 		</div>
-			<c:forEach items="${brands}" var="brand">
+			<c:forEach items="${page.content}" var="brand">
 				<div class="row">
 					<div class="col-md-4 col-xs-4">${brand.name}</div>
 					<div class="col-md-4 col-xs-4"><a class="btn btn-success" href="/admin/brand/update/${brand.id}">update</a></div>

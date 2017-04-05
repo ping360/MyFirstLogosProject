@@ -7,9 +7,9 @@
 			<div>
 				<img src="/images/item/${item.id}.jpg?version=${item.version}" width="100%">
 				<p>${item.name}</p>
-				<p>${item.price} uah</p>
+				<p>${item.price} грн</p>
 				<div>
-					<a href="/del/${item.id}" class="btn btn-primary">Kick from cart</a>
+					<a href="/del/${item.id}" class="btn btn-primary">З корзини</a>
 				</div>
 			</div>
 		</c:forEach>

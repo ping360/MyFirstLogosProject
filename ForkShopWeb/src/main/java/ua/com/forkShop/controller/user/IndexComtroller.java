@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.support.SessionStatus;
 
 import ua.com.forkShop.entity.User;
 import ua.com.forkShop.service.CategoryService;
@@ -77,6 +78,12 @@ public class IndexComtroller {
 	public String registration(Model model) {
 		model.addAttribute("user", new User());
 		return "user-registration";
+	}
+	
+	@RequestMapping("/cancel")
+	public String cancel(Model model, SessionStatus sessionStatus) {
+		sessionStatus.setComplete();
+		return "redirect:/registration";
 	}
 
 	@PostMapping("/registration")

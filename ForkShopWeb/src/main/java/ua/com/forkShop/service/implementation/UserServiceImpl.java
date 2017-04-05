@@ -73,6 +73,15 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	}
 	
 	@Override
+	@Transactional
+	public void removeToShoppingCart(int userId, int itemId) {
+		User user = userRepository.findOne(userId);
+		ShopingCart cart = user.getShopingCart();
+		Item item = itemRepository.findOne(itemId);
+		cart.remove(item);
+	}
+	
+	@Override
 	public int createNewUser() {
 		return userRepository.saveAndFlush(new User()).getId();
 	}

@@ -193,6 +193,6 @@ public class ItemController {
 	@RequestMapping("/cancel")
 	public String cancel(SessionStatus status) {
 		status.setComplete();
-		return "redirect:/admin/brand";
+		return "redirect:/admin/item";
 	}
 }

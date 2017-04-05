@@ -3,6 +3,8 @@ package ua.com.forkShop.controller.admin;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import static ua.com.forkShop.service.utils.ParamBuilder.getParams;
 
+import java.util.Locale.Category;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import ua.com.forkShop.dto.filter.BasicFilter;
+import ua.com.forkShop.editor.CategoryEditor;
 import ua.com.forkShop.entity.NameOfFeatureDigital;
 import ua.com.forkShop.service.CategoryService;
 import ua.com.forkShop.service.NameOfFeatureDigitalService;
@@ -40,6 +43,7 @@ public class NameOfFeatureDigitalController {
 	@InitBinder("nofd")
 	protected void initBinder(WebDataBinder binder) {
 		binder.setValidator(new NameOfFeatureDigitalValidator(nameOfFeatureDigitalService));
+		binder.registerCustomEditor(Category.class, new CategoryEditor(categoryService));;
 	}
 
 	@ModelAttribute("nofd")
@@ -66,6 +70,7 @@ public class NameOfFeatureDigitalController {
 	@RequestMapping
 	public String show(Model model, @PageableDefault Pageable pageable, @ModelAttribute("filter") BasicFilter filter) {
 		model.addAttribute("page", nameOfFeatureDigitalService.findAll(filter, pageable));
+		model.addAttribute("categoryess", categoryService.findAll());
 		return "admin-nameOfFeatureDigital";
 	}
 

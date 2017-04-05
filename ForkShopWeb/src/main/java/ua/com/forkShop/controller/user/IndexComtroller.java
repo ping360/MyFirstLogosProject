@@ -62,6 +62,12 @@ public class IndexComtroller {
 		model.addAttribute("items", itemService.findByUserId(userId));
 		return "user-shopping";
 	}
+	
+	@GetMapping("/del/{itemId}")
+	public String remove(@CookieValue(defaultValue = "0", name = "userId") int userId, @PathVariable int itemId) {
+		userService.removeToShoppingCart(userId, itemId);
+		return "redirect:/shopping";
+	}
 
 	@GetMapping("/buy/{itemId}")
 	public String buy(@CookieValue(defaultValue = "0", name = "userId") int userId, @PathVariable int itemId) {

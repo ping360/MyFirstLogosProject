@@ -9,4 +9,6 @@ public interface UserService {
 	int createNewUser();
 
 	void addToShoppingCart(int userId, int itemId);
+	
+	void removeToShoppingCart(int userId, int itemId);
 }

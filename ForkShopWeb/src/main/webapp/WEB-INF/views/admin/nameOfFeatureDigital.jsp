@@ -67,8 +67,8 @@
 			<c:forEach items="${page.content}" var="nofd">
 				<div class="row">
 					<div class="col-md-4 col-xs-4">${nofd.name}</div>
-					<div class="col-md-4 col-xs-4"><a class="btn btn-warning" href="/admin/nofs/update/${nofd.id}<custom:allParams/>">update</a></div>
-					<div class="col-md-4 col-xs-4"><a class="btn btn-danger" href="/admin/nofs/delete/${nofd.id}<custom:allParams/>">delete</a></div>
+					<div class="col-md-4 col-xs-4"><a class="btn btn-warning" href="/admin/nofd/update/${nofs.id}<custom:allParams/>">update</a></div>
+					<div class="col-md-4 col-xs-4"><a class="btn btn-danger" href="/admin/nofd/delete/${nofd.id}<custom:allParams/>">delete</a></div>
 				</div>
 			</c:forEach>
 	</div>

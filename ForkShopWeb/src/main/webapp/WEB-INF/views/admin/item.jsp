@@ -20,7 +20,7 @@
 					<li><a href="/admin/nofd">Name of feature digital</a></li>
 					<li><a href="/admin/nofs">Name of feature string</a></li>
 					<li><a href="/admin/fs">Feature String</a></li>
-					<li class="active"><a href="/admin/item">Item</a></li>
+					<li class="active"><a href="/admin/item">Item</a><span class="sr-only">(current)</span></li>
 				</ul>
 			</div>
 		</div>
